@@ -1,9 +1,9 @@
 package Business::Tax::VAT;
 
-use strict;
+$VERSION = '1.00';
 
-use vars qw/$VERSION/;
-$VERSION = '0.91';
+use strict;
+use warnings;
 
 =head1 NAME
 
@@ -28,60 +28,80 @@ Business::Tax::VAT - perform European VAT calculations
 =cut
 
 sub new {
-  my $class = shift;
-  my %countries = map { $_ => 1 } @_;
-  bless {
-    default   => $_[0],
-    countries => \%countries,
-  }, $class;
+	my $class = shift;
+	my %countries = map { $_ => 1 } @_;
+	bless {
+		default   => $_[0],
+		countries => \%countries,
+	}, $class;
 }
 
-sub vat_country     { $_[0]->{countries}->{lc $_[1]} || 0 }
-sub default_country { $_[0]->{default} }
+sub _is_vat_country { $_[0]->{countries}->{ lc $_[1] } || 0 }
+sub _default_country { $_[0]->{default} }
 
 sub item          { my $self = shift; $self->_item(1, @_) }
 sub business_item { my $self = shift; $self->_item(0, @_) }
 
 sub _item {
-  my $self = shift;
-  my $incl = shift;
-  my $price = shift or die "items need a price";
-  my $country = shift || $self->default_country;
-  return Business::Tax::VAT::Price->new($self, $price, $country, $incl);
+	my $self    = shift;
+	my $incl    = shift;
+	my $price   = shift or die "items need a price";
+	my $country = shift || $self->_default_country;
+	return Business::Tax::VAT::Price->new($self, $price, $country, $incl);
 }
 
 package Business::Tax::VAT::Price;
 
-use vars qw/%RATE/;
-%RATE = (
-  at => 20,    be => 21,    dk => 25,    fi => 22,
-  fr => 19.6,  de => 16,    gr => 18,    ie => 20,
-  it => 20,    lu => 15,    nl => 19,    pt => 17,
-  es => 16,    se => 25,    uk => 17.5,
+our %RATE = (
+	at   => 20,
+	be   => 21,
+	cy   => 15,
+	cz   => 19,
+	dk   => 25,
+	ee   => 18,
+	fi   => 22,
+	fr   => 19.6,
+	de   => 16,
+	gr   => 17.5,
+	hu   => 25,
+	ie   => 21,
+	it   => 20,
+	lv   => 18,
+	'lt' => 17.5,
+	lu   => 15,
+	mt   => 18,
+	nl   => 19,
+	pl   => 22,
+	pt   => 21,
+	sk   => 19,
+	si   => 20,
+	es   => 16,
+	se   => 25,
+	uk   => 17.5,
 );
 
 sub new {
-  my ($class, $vat_obj, $price, $country, $incl) = @_;
-  my $self = {};
+	my ($class, $vat_obj, $price, $country, $incl) = @_;
+	my $self = {};
 
-  my $rate = ($RATE{lc $country} || 0) / 100;
-     $rate = 0 unless $vat_obj->vat_country($country);
+	my $rate = ($RATE{ lc $country } || 0) / 100;
+	$rate = 0 unless $vat_obj->_is_vat_country($country);
 
-  if ($incl == 0) {
-    $self->{net}  = $price;
-    $self->{vat}  = $self->{net} * $rate;
-    $self->{full} = $self->{net} + $self->{vat};
-  } else {
-    $self->{full} = $price;
-    $self->{net}  = $self->{full} / (1 + $rate);
-    $self->{vat}  = $self->{full} - $self->{net};
-  }
-  bless $self, $class;
+	if ($incl == 0) {
+		$self->{net}  = $price;
+		$self->{vat}  = $self->{net} * $rate;
+		$self->{full} = $self->{net} + $self->{vat};
+	} else {
+		$self->{full} = $price;
+		$self->{net}  = $self->{full} / (1 + $rate);
+		$self->{vat}  = $self->{full} - $self->{net};
+	}
+	bless $self, $class;
 }
 
 sub full { $_[0]->{full} }
-sub vat  { $_[0]->{vat}  }
-sub net  { $_[0]->{net}  }
+sub vat  { $_[0]->{vat} }
+sub net  { $_[0]->{net} }
 
 =head1 DESCRIPTION
 
@@ -96,6 +116,8 @@ There are several key processes:
 
 =head1 CONSTRUCTING A VAT OBJECT
 
+=head2 new
+
   my $vat = Business::Tax::VAT->new(@country_codes);
 
 First of all you have to construct a VAT object, providing it with
@@ -107,6 +129,8 @@ The full list of territories, and their abbreviations, is documented
 below.
 
 =head1 PRICING AN ITEM
+
+=head2 item / business_item
 
   my $price = $vat->item($unit_price => $country_code);
   my $price = $vat->business_item($unit_price => $country_code);
@@ -120,8 +144,9 @@ quoted ex-VAT.
 If you do not supply a country code, it will default to the first country
 in the country list passed to VAT->new;
 
-
 =head1 CALCULATING THE COMPONENT PRICES
+
+=head2 full / vat / net
 
   my $price_to_customer = $price->full;
   my $vat_charged       = $price->vat;
@@ -155,41 +180,58 @@ This module uses the following rates and codes:
 
   at, Austria, 20%
   be, Belgium, 21%
+  cy, Cyprus, 15%
+  cz, Czech Republic, 19%
   dk, Denmark, 25%
+  ee, Estonia, 18%
   fi, Finland, 22%
   fr, France, 19.6%
   de, Germany, 16%
-  gr, Greece, 18%
-  ie, The Republic of Ireland, 20%
+  gr, Greece, 17.5%
+  hu, Hungary, 25%
+  ie, Ireland, 21%
   it, Italy, 20%
+  lv, Latvia, 18%
+  lt, Lithuania, 17.5%
   lu, Luxembourg, 15%
+  mt, Malta, 18%
   nl, The Netherlands, 19%
-  pt, Portugal, 17%
+  pl, Poland, 22%
+  pt, Portugal, 21%
+  sk, Slovak Republic, 19%
+  si, Slovenia, 20%
   es, Spain, 16%
   se, Sweden, 25%
   uk, United Kingdom, 17.5%
 
-=head1 FEEDBACK
+If any of these rates become incorrect, or if you wish to use
+different rates due to the nature of the product (e.g. books are 0%
+VAT in the UK), then you can (locally) set the rate by assigning to
+%Business::Tax::VAT::Price::RATE.  e.g.:
 
-If you find this module useful, or have any comments, suggestions or
-improvements, please let me know.
+  local $Business::Tax::VAT::Price::RATE{uk} = 0 
+    if ($product_type eq 'book' and $country eq 'uk');
 
 =head1 AUTHOR
 
-Tony Bowden, E<lt>kasei@tmtm.comE<gt>.
+Tony Bowden
+
+=head1 BUGS and QUERIES
+
+Please direct all correspondence regarding this module to:
+  bug-Business-Tax-VAT@rt.cpan.org
 
 =head1 COPYRIGHT
 
-Copyright (C) 2001 Tony Bowden. All rights reserved.
+  Copyright (C) 2001-2005 Tony Bowden.
 
-This module is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+  This program is free software; you can redistribute it and/or modify it under
+  the terms of the GNU General Public License; either version 2 of the License,
+  or (at your option) any later version.
 
-=head1 WARRANTY
-
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+  This program is distributed in the hope that it will be useful, but WITHOUT
+  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+  FOR A PARTICULAR PURPOSE.
 
 =cut
 

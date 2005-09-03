@@ -1,5 +1,9 @@
 Changes
 lib/Business/Tax/VAT.pm
-MANIFEST
 Makefile.PL
+MANIFEST			This list of files
+META.yml
+README
+t/pod-coverage.t
+t/pod.t
 t/vat.t
