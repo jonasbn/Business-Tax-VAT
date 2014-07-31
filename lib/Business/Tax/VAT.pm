@@ -61,7 +61,7 @@ our %RATE = (
 	ee   => 18,
 	fi   => 22,
 	fr   => 19.6,
-	de   => 16,
+	de   => 19,
 	gr   => 17.5,
 	hu   => 25,
 	ie   => 21,
@@ -186,7 +186,7 @@ This module uses the following rates and codes:
   ee, Estonia, 18%
   fi, Finland, 22%
   fr, France, 19.6%
-  de, Germany, 16%
+  de, Germany, 19%
   gr, Greece, 17.5%
   hu, Hungary, 25%
   ie, Ireland, 21%
