@@ -212,6 +212,14 @@ VAT in the UK), then you can (locally) set the rate by assigning to
   local $Business::Tax::VAT::Price::RATE{uk} = 0 
     if ($product_type eq 'book' and $country eq 'uk');
 
+=head1 SEE ALSO
+
+=over
+
+=item * L<http://www.vatlive.com/> current and historic VAT rates resource
+
+=back
+
 =head1 AUTHOR
 
 Tony Bowden
