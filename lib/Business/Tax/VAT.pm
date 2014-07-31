@@ -77,7 +77,7 @@ our %RATE = (
 	si   => 20,
 	es   => 16,
 	se   => 25,
-	uk   => 17.5,
+	uk   => 20,
 );
 
 sub new {
@@ -202,7 +202,7 @@ This module uses the following rates and codes:
   si, Slovenia, 20%
   es, Spain, 16%
   se, Sweden, 25%
-  uk, United Kingdom, 17.5%
+  uk, United Kingdom, 20%
 
 If any of these rates become incorrect, or if you wish to use
 different rates due to the nature of the product (e.g. books are 0%

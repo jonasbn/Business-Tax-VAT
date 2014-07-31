@@ -2,7 +2,9 @@ Revision history
 
 1.01  Thu Jul 31 2014, bug fix release
 
-- RT:61956 - adjusting DE rate to 19%
+- RT:74846, adjusting UK rate to 20%
+
+- RT:61956, adjusting DE rate to 19%
 
 1.00  Sat Sep  3 15:10:03 UTC 2005
   - Added new EU countries and brought VAT rates up to date 

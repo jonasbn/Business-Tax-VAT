@@ -10,15 +10,15 @@ my $vat = Business::Tax::VAT->new(qw/uk ie/);
 {
   my $price = $vat->item(117.5 => 'uk');
   is $price->full, 117.5, "Full price correct - UK consumer";
-  is $price->vat,  17.5,  "VAT correct - UK consumer";
-  is $price->net,  100,   "Net price correct - UK consumer";
+  is $price->vat,  19.5833333333333,  "VAT correct - UK consumer";
+  is $price->net,  97.9166666666667,   "Net price correct - UK consumer";
 }
 
 {
   my $price = $vat->item(117.5);
   is $price->full, 117.5, "Full price correct - implied UK consumer";
-  is $price->vat,  17.5,  "VAT correct - implied UK consumer";
-  is $price->net,  100,   "Net price correct - implied UK consumer";
+  is $price->vat,  19.5833333333333, "VAT correct - implied UK consumer";
+  is $price->net,  97.9166666666667,   "Net price correct - implied UK consumer";
 }
 
 {
