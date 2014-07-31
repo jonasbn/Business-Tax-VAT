@@ -1,5 +1,11 @@
 Revision history 
 
+1.02  Thu Jul 31 2014, maintenance release
+
+- Bumped up year in copyright section
+
+- Updated README from POD
+
 1.01  Thu Jul 31 2014, bug fix release
 
 - RT:88779, adjusting IT rate to 22%
