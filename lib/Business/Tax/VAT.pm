@@ -223,7 +223,7 @@ Please direct all correspondence regarding this module to:
 
 =head1 COPYRIGHT
 
-  Copyright (C) 2001-2005 Tony Bowden.
+  Copyright (C) 2001-2014 Tony Bowden.
 
   This program is free software; you can redistribute it and/or modify it under
   the terms of the GNU General Public License; either version 2 of the License,
