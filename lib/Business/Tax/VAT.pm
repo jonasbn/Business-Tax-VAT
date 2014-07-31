@@ -65,7 +65,7 @@ our %RATE = (
 	gr   => 17.5,
 	hu   => 25,
 	ie   => 21,
-	it   => 20,
+	it   => 22,
 	lv   => 18,
 	'lt' => 17.5,
 	lu   => 15,
@@ -190,7 +190,7 @@ This module uses the following rates and codes:
   gr, Greece, 17.5%
   hu, Hungary, 25%
   ie, Ireland, 21%
-  it, Italy, 20%
+  it, Italy, 22%
   lv, Latvia, 18%
   lt, Lithuania, 17.5%
   lu, Luxembourg, 15%
