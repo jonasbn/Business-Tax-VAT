@@ -1,5 +1,14 @@
 Revision history 
 
+1.03  Mon Aug  4 2014, maintenance release
+
+- Addressing some cpantesters reports on Linux, holding
+  higher resolution on the floating-point numbers
+
+  Example report:
+
+  http://www.cpantesters.org/cpan/report/72783644-18dd-11e4-b23f-846b3a34fa6c
+
 1.02  Thu Jul 31 2014, maintenance release
 
 - Bumped up year in copyright section
