@@ -1,6 +1,6 @@
 package Business::Tax::VAT;
 
-$VERSION = '1.03';
+$VERSION = '1.04';
 
 use strict;
 use warnings;
