@@ -1,4 +1,16 @@
-Revision history 
+Revision history
+
+1.04  Fri Aug 15 2014, maintenance release
+
+- Addressing Kwalitee
+
+- Changed from classic Makefile.PL to Dist::Zilla based release
+  management and general SDLC tooling. This should address issues
+  with META spec, since it will not be automatically generated
+
+- Attemting specification of required perl version, due to POD
+  syntax we land on Perl 5.8 according to Perl::Critic
+
 
 1.03  Mon Aug  4 2014, maintenance release
 
