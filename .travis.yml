@@ -6,3 +6,9 @@ perl:
   - "5.12"
   - "5.10"
   - "5.8"
+
+install:
+    cpanm --quiet --installdeps --notest . && cpanm --quiet --notest Dist::Zilla
+
+script:
+    - dzil smoke
