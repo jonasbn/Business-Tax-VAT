@@ -1,14 +1,27 @@
 package Business::Tax::VAT;
 
-$VERSION = '1.05';
-
 use strict;
 use warnings;
+use vars qw($VERSION);
 use 5.008;
+
+$VERSION = '1.06';
+
+=begin markdown
+
+[![CPAN version](https://badge.fury.io/pl/Business-Tax-VAT.svg)](http://badge.fury.io/pl/Business-Tax-VAT)
+[![Build Status](https://travis-ci.org/jonasbn/Business-Tax-VAT.svg?branch=master)](https://travis-ci.org/jonasbn/Business-Tax-VAT)
+[![Coverage Status](https://coveralls.io/repos/jonasbn/Business-Tax-VAT/badge.png)](https://coveralls.io/r/jonasbn/Business-Tax-VAT)
+
+=end markdown
 
 =head1 NAME
 
 Business::Tax::VAT - perform European VAT calculations
+
+=head1 VERSION
+
+This pod describes version 1.07
 
 =head1 SYNOPSIS
 

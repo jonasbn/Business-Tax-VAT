@@ -1,6 +1,13 @@
 Revision history
 
-1.05 2014.08.20, maintenance release
+1.06 2014-09-01 maintenance release, update not required
+
+- Minor updates to the POD
+
+- Updated Dist::Zilla configuration with more plugins to save more time
+
+
+1.05 2014-08-20 maintenance release, update not required
 
 - Added Test::CPAN::Changes test t/changes.t
 
@@ -15,7 +22,7 @@ Revision history
 - Added repository information on Github
 
 
-1.04 2014.08.15, maintenance release
+1.04 2014-08-15 maintenance release, update not required
 
 - Addressing Kwalitee
 
@@ -27,7 +34,7 @@ Revision history
   syntax we land on Perl 5.8 according to Perl::Critic
 
 
-1.03 2014.08.04, maintenance release
+1.03 2014-08-04 maintenance release, update not required
 
 - Addressing some cpantesters reports on Linux, holding
   higher resolution on the floating-point numbers
@@ -36,13 +43,14 @@ Revision history
 
   http://www.cpantesters.org/cpan/report/72783644-18dd-11e4-b23f-846b3a34fa6c
 
-1.02 2014.07.31, maintenance release
+1.02 2014-0731 maintenance release, update not required
 
 - Bumped up year in copyright section
 
 - Updated README from POD
 
-1.01  Thu Jul 31 2014, feature release, update recommended
+
+1.01 2014-07-31 feature release, update recommended
 
 - RT:88779, adjusting IT rate to 22%
 
@@ -54,8 +62,6 @@ Revision history
 
 - Added new EU countries and brought VAT rates up to date
 
-0.91 2001.11.11
+0.91 2001-11-11
 
 - Created this
-
-

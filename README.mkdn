@@ -6,6 +6,10 @@
 
 Business::Tax::VAT - perform European VAT calculations
 
+# VERSION
+
+This pod describes version 1.07
+
 # SYNOPSIS
 
     use Business::Tax::VAT;
