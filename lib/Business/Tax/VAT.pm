@@ -69,6 +69,7 @@ package Business::Tax::VAT::Price;
 our %RATE = (
 	at   => 20,
 	be   => 21,
+	bg   => 20,
 	cy   => 15,
 	cz   => 19,
 	dk   => 25,
