@@ -1,9 +1,14 @@
 #!/usr/bin/perl -w
 
-use Test::More tests => 21;
+use Test::More;
 
 use strict;
-use Business::Tax::VAT;
+BEGIN {
+    eval {
+        require Test::MockTime;
+    };
+    require Business::Tax::VAT;
+}
 
 my $vat = Business::Tax::VAT->new(qw/uk ie/);
 
@@ -55,5 +60,42 @@ my $vat = Business::Tax::VAT->new(qw/uk ie/);
   is $price->full, 100, "Full price correct - uk book";
   is $price->vat,    0, "No VAT - uk book";
   is $price->net,  100, "Net price correct - uk book";
+}
+
+_test_luxembourg_vat();
+
+if ($INC{'Test/MockTime.pm'}) {
+    subtest(
+        'Before 2015, Luxembourg VAT is correct',
+        sub {
+            Test::MockTime::set_fixed_time('2014-12-31T23:59:00Z');
+            _test_luxembourg_vat();
+        }
+    );
+    subtest(
+        'After 2015, Luxembourg VAT is correct',
+        sub {
+            Test::MockTime::set_fixed_time('2015-01-01T01:00:00Z');
+            _test_luxembourg_vat();
+        }
+    );
+} elsif ($ENV{AUTHOR}) {
+    diag "Test::MockTime not loaded, cannot check Luxembourg VAT";
+}
+
+done_testing();
+
+sub _test_luxembourg_vat {
+    my $vat_lu = Business::Tax::VAT->new('lu');
+    Business::Tax::VAT::Price->_calculate_vat_rates;
+    my $price = $vat_lu->business_item(100);
+    my ($year) = (gmtime time)[5] + 1900;
+    if ($year == 2015) {
+        is $price->vat, 17, 'This is 2015 - Luxembourg has 17% VAT';
+    } elsif ($year < 2015) {
+        is $price->vat, 15, 'Before 2015, Luxembourgh has 15% VAT';
+    } else {
+        fail "Luxembourg could have done anything by $year";
+    }
 }
 
