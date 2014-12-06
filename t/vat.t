@@ -79,8 +79,8 @@ if ($INC{'Test/MockTime.pm'}) {
             _test_luxembourg_vat();
         }
     );
-} elsif ($ENV{AUTHOR}) {
-    diag "Test::MockTime not loaded, cannot check Luxembourg VAT";
+} elsif ($ENV{AUTHOR_TESTING}) {
+    fail(q{Test::MockTime not loaded, cannot check Luxembourg VAT});
 }
 
 done_testing();
