@@ -22,23 +22,23 @@ my $vat = Business::Tax::VAT->new(qw/uk ie/);
 }
 
 {
-  my $price = $vat->item(121 => 'ie');
-  is $price->full, 121, "Full price correct - ie consumer";
-  is $price->vat,   21, "VAT correct - ie consumer";
+  my $price = $vat->item(123 => 'ie');
+  is $price->full, 123, "Full price correct - ie consumer";
+  is $price->vat,   23, "VAT correct - ie consumer";
   is $price->net,  100, "Net price correct - ie consumer";
 }
 
 {
-  my $price = $vat->item(121 => 'IE');
-  is $price->full, 121, "Full price correct - IE consumer";
-  is $price->vat,   21, "VAT correct - IE consumer";
+  my $price = $vat->item(123 => 'IE');
+  is $price->full, 123, "Full price correct - IE consumer";
+  is $price->vat,   23, "VAT correct - IE consumer";
   is $price->net,  100, "Net price correct - IE consumer";
 }
 
 {
   my $price = $vat->business_item(100 => 'IE');
-  is $price->full, 121, "Full price correct - IE business";
-  is $price->vat,   21, "VAT correct - IE business";
+  is $price->full, 123, "Full price correct - IE business";
+  is $price->vat,   23, "VAT correct - IE business";
   is $price->net,  100, "Net price correct - IE business";
 }
 
