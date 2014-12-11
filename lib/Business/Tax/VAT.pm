@@ -21,7 +21,7 @@ Business::Tax::VAT - perform European VAT calculations
 
 =head1 VERSION
 
-This pod describes version 1.06
+This pod describes version 1.07
 
 =head1 SYNOPSIS
 
