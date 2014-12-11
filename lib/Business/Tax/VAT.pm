@@ -5,7 +5,7 @@ use warnings;
 use vars qw($VERSION);
 use 5.008;
 
-$VERSION = '1.06';
+$VERSION = '1.07';
 
 =begin markdown
 
@@ -245,6 +245,14 @@ Tony Bowden
 
 Please direct all correspondence regarding this module to:
   bug-Business-Tax-VAT@rt.cpan.org
+
+=head1 ACKNOWLEDGEMENTS
+
+=over
+
+=item * Sam Kington, patches leading to release of 1.07
+
+=back
 
 =head1 COPYRIGHT
 
