@@ -5,7 +5,7 @@ use warnings;
 use vars qw($VERSION);
 use 5.008;
 
-$VERSION = '1.06';
+$VERSION = '1.07';
 
 =begin markdown
 
@@ -21,7 +21,7 @@ Business::Tax::VAT - perform European VAT calculations
 
 =head1 VERSION
 
-This pod describes version 1.06
+This pod describes version 1.07
 
 =head1 SYNOPSIS
 
@@ -71,32 +71,35 @@ our %RATE;
 __PACKAGE__->_calculate_vat_rates();
 
 sub _calculate_vat_rates {
-    %RATE = (
-        at   => 20,
-        be   => 21,
-        cy   => 15,
-        cz   => 19,
-        dk   => 25,
-        ee   => 18,
-        fi   => 22,
-        fr   => 19.6,
-        de   => 19,
-        gr   => 17.5,
-        hu   => 25,
-        ie   => 21,
-        it   => 22,
-        lv   => 18,
-        'lt' => 17.5,
-        lu   => 15,
-        mt   => 18,
-        nl   => 19,
-        pl   => 22,
-        pt   => 21,
-        sk   => 19,
-        si   => 20,
-        es   => 16,
-        se   => 25,
-        uk   => 20,
+    our %RATE = (
+        at => 20,
+        be => 21,
+        bg => 20,
+        cy => 19,
+        cz => 21,
+        dk => 25,
+        ee => 20,
+        fi => 24,
+        fr => 20,
+        de => 19,
+        gr => 23,
+        hu => 27,
+        hr => 25,
+        ie => 23,
+        it => 22,
+        lv => 21,
+        lt => 21,
+        lu => 15,
+        mt => 18,
+        nl => 21,
+        pl => 23,
+        pt => 23,
+        ro => 24,
+        sk => 20,
+        si => 22,
+        es => 21,
+        se => 25,
+        uk => 20,
     );
     if (((gmtime(time))[5] + 1900) >= 2015) {
         $RATE{lu} = 17;
@@ -251,6 +254,14 @@ Tony Bowden
 
 Please direct all correspondence regarding this module to:
   bug-Business-Tax-VAT@rt.cpan.org
+
+=head1 ACKNOWLEDGEMENTS
+
+=over
+
+=item * Sam Kington, patches leading to release of 1.07
+
+=back
 
 =head1 COPYRIGHT
 

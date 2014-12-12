@@ -148,6 +148,10 @@ Tony Bowden
 Please direct all correspondence regarding this module to:
   bug-Business-Tax-VAT@rt.cpan.org
 
+# ACKNOWLEDGEMENTS
+
+- Sam Kington, patches leading to release of 1.07
+
 # COPYRIGHT
 
     Copyright (C) 2001-2014 Tony Bowden.
