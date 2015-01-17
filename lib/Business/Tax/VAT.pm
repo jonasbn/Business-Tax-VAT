@@ -66,36 +66,45 @@ sub _item {
 
 package Business::Tax::VAT::Price;
 
-our %RATE = (
-    at => 20,
-    be => 21,
-    bg => 20,
-    cy => 19,
-    cz => 21,
-    dk => 25,
-    ee => 20,
-    fi => 24,
-    fr => 20,
-    de => 19,
-    gr => 23,
-    hu => 27,
-    hr => 25,
-    ie => 23,
-    it => 22,
-    lv => 21,
-    lt => 21,
-    lu => 15,
-    mt => 18,
-    nl => 21,
-    pl => 23,
-    pt => 23,
-    ro => 24,
-    sk => 20,
-    si => 22,
-    es => 21,
-    se => 25,
-    uk => 20,
-);
+our %RATE;
+
+__PACKAGE__->_calculate_vat_rates();
+
+sub _calculate_vat_rates {
+    our %RATE = (
+        at => 20,
+        be => 21,
+        bg => 20,
+        cy => 19,
+        cz => 21,
+        dk => 25,
+        ee => 20,
+        fi => 24,
+        fr => 20,
+        de => 19,
+        gr => 23,
+        hu => 27,
+        hr => 25,
+        ie => 23,
+        it => 22,
+        lv => 21,
+        lt => 21,
+        lu => 15,
+        mt => 18,
+        nl => 21,
+        pl => 23,
+        pt => 23,
+        ro => 24,
+        sk => 20,
+        si => 22,
+        es => 21,
+        se => 25,
+        uk => 20,
+    );
+    if (((gmtime(time))[5] + 1900) >= 2015) {
+        $RATE{lu} = 17;
+    }
+}
 
 sub new {
 	my ($class, $vat_obj, $price, $country, $incl) = @_;
