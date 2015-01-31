@@ -1,5 +1,12 @@
 Revision history
 
+1.08 2015-01-31 feature release, update recommended
+
+- Luxembourg VAT rates corrected by Sam Kington
+
+- Introducing dependency Test::MockTime
+
+
 1.07 2014-12-11 feature release, update recommended
 
 - Plenty of VAT rates corrected by Sam Kington

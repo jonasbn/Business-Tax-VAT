@@ -64,24 +64,20 @@ my $vat = Business::Tax::VAT->new(qw/uk ie/);
 
 _test_luxembourg_vat();
 
-if ($INC{'Test/MockTime.pm'}) {
-    subtest(
-        'Before 2015, Luxembourg VAT is correct',
-        sub {
-            Test::MockTime::set_fixed_time('2014-12-31T23:59:00Z');
-            _test_luxembourg_vat();
-        }
-    );
-    subtest(
-        'After 2015, Luxembourg VAT is correct',
-        sub {
-            Test::MockTime::set_fixed_time('2015-01-01T01:00:00Z');
-            _test_luxembourg_vat();
-        }
-    );
-} elsif ($ENV{AUTHOR_TESTING}) {
-    fail(q{Test::MockTime not loaded, cannot check Luxembourg VAT});
-}
+subtest(
+    'Before 2015, Luxembourg VAT is correct',
+    sub {
+        Test::MockTime::set_fixed_time('2014-12-31T23:59:00Z');
+        _test_luxembourg_vat();
+    }
+);
+subtest(
+    'After 2015, Luxembourg VAT is correct',
+    sub {
+        Test::MockTime::set_fixed_time('2015-01-01T01:00:00Z');
+        _test_luxembourg_vat();
+    }
+);
 
 done_testing();
 

@@ -5,7 +5,7 @@ use warnings;
 use vars qw($VERSION);
 use 5.008;
 
-$VERSION = '1.07';
+$VERSION = '1.08';
 
 =begin markdown
 
@@ -259,7 +259,7 @@ Please direct all correspondence regarding this module to:
 
 =over
 
-=item * Sam Kington, patches leading to release of 1.07
+=item * Sam Kington, patches leading to release of 1.07 and 1.08
 
 =back
 
