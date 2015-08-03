@@ -66,6 +66,8 @@ sub _item {
 
 package Business::Tax::VAT::Price;
 
+$VERSION = '1.09';
+
 our %RATE;
 
 __PACKAGE__->_calculate_vat_rates();
