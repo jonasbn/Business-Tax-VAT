@@ -1,5 +1,20 @@
 Revision history
 
+1.09 2015-08-03 maintenance release, update not required
+
+- Added MetaProvides to Dist::Zilla build, this should assist in 
+  addressing the issue listed on CPANTS and on github
+
+  Ref: https://github.com/jonasbn/Business-Tax-VAT/issues/1
+
+- Adjusted and aligned version numbers
+
+- Removed the hack to present the proper tax rate for Luxembourg,
+  patch was handling a future, change this is not necessary anymore
+    
+- Corrected the Luxembourg rate in the POD
+
+
 1.08 2015-01-31 feature release, update recommended
 
 - Luxembourg VAT rates corrected by Sam Kington
