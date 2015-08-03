@@ -8,7 +8,7 @@ Business::Tax::VAT - perform European VAT calculations
 
 # VERSION
 
-This pod describes version 1.07
+This pod describes version 1.09
 
 # SYNOPSIS
 
@@ -116,7 +116,7 @@ This module uses the following rates and codes:
     it, Italy, 22%
     lv, Latvia, 18%
     lt, Lithuania, 17.5%
-    lu, Luxembourg, 15%
+    lu, Luxembourg, 17%
     mt, Malta, 18%
     nl, The Netherlands, 19%
     pl, Poland, 22%
@@ -150,7 +150,7 @@ Please direct all correspondence regarding this module to:
 
 # ACKNOWLEDGEMENTS
 
-- Sam Kington, patches leading to release of 1.07
+- Sam Kington, patches leading to release of 1.07 and 1.08
 
 # COPYRIGHT
 
