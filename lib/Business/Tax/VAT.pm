@@ -89,7 +89,7 @@ sub _calculate_vat_rates {
         ie => 23, #ireland
         it => 22, #italy
         lt => 21, #lithuania
-        lu => 15, #luxembourg
+        lu => 17, #luxembourg
         lv => 21, #latvia
         mt => 18, #malta
         nl => 21, #netherlands
@@ -101,9 +101,6 @@ sub _calculate_vat_rates {
         sk => 20, #slovakia
         uk => 20, #united kingdom
     );
-    if (((gmtime(time))[5] + 1900) >= 2015) {
-        $RATE{lu} = 17;
-    }
 }
 
 sub new {
@@ -219,7 +216,7 @@ This module uses the following rates and codes:
   it, Italy, 22%
   lv, Latvia, 18%
   lt, Lithuania, 17.5%
-  lu, Luxembourg, 15%
+  lu, Luxembourg, 17%
   mt, Malta, 18%
   nl, The Netherlands, 19%
   pl, Poland, 22%
