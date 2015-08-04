@@ -66,6 +66,7 @@ sub _item {
 
 package Business::Tax::VAT::Price;
 
+use vars qw($VERSION);
 $VERSION = '1.09';
 
 our %RATE;
