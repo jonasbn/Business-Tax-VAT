@@ -10,6 +10,17 @@ BEGIN {
 my $vat = Business::Tax::VAT->new(qw/uk ie/);
 
 {
+  my $vat = Business::Tax::VAT->new(qw/gb/);
+
+  $Business::Tax::VAT::Price::RATE{'gb'} = 20;
+
+  my $price = $vat->item(102 => 'gb');
+  is $price->full, 102, "Full price correct - GB consumer";
+  is $price->vat,  17,  "VAT correct - GB consumer";
+  is $price->net,  85,   "Net price correct - GB consumer";
+}
+
+{
   my $price = $vat->item(102 => 'uk');
   is $price->full, 102, "Full price correct - UK consumer";
   is $price->vat,  17,  "VAT correct - UK consumer";
