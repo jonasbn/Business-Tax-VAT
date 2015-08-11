@@ -238,6 +238,16 @@ VAT in the UK), then you can (locally) set the rate by assigning to
   local $Business::Tax::VAT::Price::RATE{uk} = 0 
     if ($product_type eq 'book' and $country eq 'uk');
 
+=head1 DYNAMICAALY ADDING A COUNTRY
+
+If you want to add your own country, do the following:
+
+    my $vat = Business::Tax::VAT->new(qw/gb/);
+
+    $Business::Tax::VAT::Price::RATE{'gb'} = 20;
+
+    my $price = $vat->item(102 => 'gb');
+
 =head1 SEE ALSO
 
 =over
@@ -258,6 +268,8 @@ Please direct all correspondence regarding this module to:
 =head1 ACKNOWLEDGEMENTS
 
 =over
+
+=item * Documentation added in release 1.10 based on question from Tom Kirkpatrick
 
 =item * Sam Kington, patches leading to release of 1.07 and 1.08
 
