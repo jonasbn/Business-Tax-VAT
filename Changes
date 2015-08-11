@@ -1,5 +1,12 @@
 Revision history
 
+1.10 2015-08-11 maintenance release, update not required
+
+- Added tests and documentation demonstrating how to address RT:16941
+
+  https://rt.cpan.org/Ticket/Display.html?id=16941
+
+
 1.09 2015-08-03 maintenance release, update not required
 
 - Added MetaProvides to Dist::Zilla build, this should assist in 

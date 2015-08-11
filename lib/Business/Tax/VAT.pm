@@ -5,7 +5,7 @@ use warnings;
 use vars qw($VERSION);
 use 5.008;
 
-$VERSION = '1.09';
+$VERSION = '1.10';
 
 =begin markdown
 
@@ -21,7 +21,7 @@ Business::Tax::VAT - perform European VAT calculations
 
 =head1 VERSION
 
-This pod describes version 1.09
+This pod describes version 1.10
 
 =head1 SYNOPSIS
 
@@ -67,7 +67,7 @@ sub _item {
 package Business::Tax::VAT::Price;
 
 use vars qw($VERSION);
-$VERSION = '1.09';
+$VERSION = '1.10';
 
 our %RATE;
 
