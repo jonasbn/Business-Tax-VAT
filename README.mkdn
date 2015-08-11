@@ -8,7 +8,7 @@ Business::Tax::VAT - perform European VAT calculations
 
 # VERSION
 
-This pod describes version 1.09
+This pod describes version 1.10
 
 # SYNOPSIS
 
@@ -135,6 +135,16 @@ VAT in the UK), then you can (locally) set the rate by assigning to
     local $Business::Tax::VAT::Price::RATE{uk} = 0 
       if ($product_type eq 'book' and $country eq 'uk');
 
+# DYNAMICAALY ADDING A COUNTRY
+
+If you want to add your own country, do the following:
+
+    my $vat = Business::Tax::VAT->new(qw/gb/);
+
+    $Business::Tax::VAT::Price::RATE{'gb'} = 20;
+
+    my $price = $vat->item(102 => 'gb');
+
 # SEE ALSO
 
 - [http://www.vatlive.com/](http://www.vatlive.com/) current and historic VAT rates resource
@@ -150,11 +160,12 @@ Please direct all correspondence regarding this module to:
 
 # ACKNOWLEDGEMENTS
 
+- Documentation added in release 1.10 based on question from Tom Kirkpatrick
 - Sam Kington, patches leading to release of 1.07 and 1.08
 
 # COPYRIGHT
 
-    Copyright (C) 2001-2014 Tony Bowden.
+    Copyright (C) 2001-2015 Tony Bowden.
 
     This program is free software; you can redistribute it and/or modify it under
     the terms of the GNU General Public License; either version 2 of the License,
