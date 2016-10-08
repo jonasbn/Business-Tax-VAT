@@ -15,6 +15,8 @@ File an issue if you think you've found a bug. Please describe
 
 Patches for fixes, features, and improvements are accepted via pull requests.
 
-All contributions are welcome and most will be accepted.
+All contributions are welcome and most will be accepted
 
+## Licensing and copyright
 
+Please note that accepted contributions are included in the repository and hence under the same license as the repository contributed to.
