@@ -14,14 +14,14 @@ This pod describes version 1.11
 
     use Business::Tax::VAT;
 
-    my $vat = Business::Tax::VAT->new(qw/uk ie/);
+    my $vat = Business::Tax::VAT->new(qw/at ie/);
 
     my $price = $vat->item(120 => 'ie');
     my $price_to_customer = $price->full;     # 120
     my $vat_charged       = $price->vat;      #  20
     my $net_price_to_me   = $price->net;      # 100
 
-    my $price = $vat->business_item(102 => 'uk');
+    my $price = $vat->business_item(102 => 'at');
     my $price_to_customer = $price->full;     # 102
     my $vat_charged       = $price->vat;      #  17
     my $net_price_to_me   = $price->net;      #  85
@@ -127,12 +127,12 @@ This module uses the following rates and codes:
     se, Sweden, 25%
 
 If any of these rates become incorrect, or if you wish to use
-different rates due to the nature of the product (e.g. books are 0%
-VAT in the UK), then you can (locally) set the rate by assigning to
+different rates due to the nature of the product (e.g. transport is 0%
+VAT in Austria), then you can (locally) set the rate by assigning to
 %Business::Tax::VAT::Price::RATE.  e.g.:
 
-    local $Business::Tax::VAT::Price::RATE{uk} = 0
-      if ($product_type eq 'book' and $country eq 'uk');
+    local $Business::Tax::VAT::Price::RATE{at} = 0
+      if ($product_type eq 'book' and $country eq 'at');
 
 # DYNAMICAALY ADDING A COUNTRY
 
