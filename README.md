@@ -134,7 +134,7 @@ VAT in Austria), then you can (locally) set the rate by assigning to
     local $Business::Tax::VAT::Price::RATE{at} = 0
       if ($product_type eq 'book' and $country eq 'at');
 
-# DYNAMICAALY ADDING A COUNTRY
+# DYNAMICALLY ADDING A COUNTRY
 
 If you want to add your own country, do the following:
 
