@@ -8,7 +8,7 @@ Business::Tax::VAT - perform European VAT calculations
 
 # VERSION
 
-This pod describes version 1.11
+This pod describes version 1.12
 
 # SYNOPSIS
 
@@ -103,27 +103,30 @@ This module uses the following rates and codes:
 
     at, Austria, 20%
     be, Belgium, 21%
-    cy, Cyprus, 15%
-    cz, Czech Republic, 19%
+    bg, Bulgaria 20%
+    hr, Croatia 25%
+    cy, Cyprus, 19%
+    cz, Czech Republic, 21%
     dk, Denmark, 25%
-    ee, Estonia, 18%
-    fi, Finland, 22%
-    fr, France, 19.6%
+    ee, Estonia, 20%
+    fi, Finland, 24%
+    fr, France, 20%
     de, Germany, 19%
-    gr, Greece, 17.5%
-    hu, Hungary, 25%
-    ie, Ireland, 21%
+    gr, Greece, 24%
+    hu, Hungary, 27%
+    ie, Ireland, 23%
     it, Italy, 22%
-    lv, Latvia, 18%
-    lt, Lithuania, 17.5%
+    lv, Latvia, 21%
+    lt, Lithuania, 21%
     lu, Luxembourg, 17%
     mt, Malta, 18%
-    nl, The Netherlands, 19%
-    pl, Poland, 22%
-    pt, Portugal, 21%
-    sk, Slovak Republic, 19%
-    si, Slovenia, 20%
-    es, Spain, 16%
+    nl, The Netherlands, 21%
+    pl, Poland, 23%
+    pt, Portugal, 23%
+    ro, Romania 19%
+    sk, Slovak Republic, 20%
+    si, Slovenia, 22%
+    es, Spain, 21%
     se, Sweden, 25%
 
 If any of these rates become incorrect, or if you wish to use
@@ -146,16 +149,19 @@ If you want to add your own country, do the following:
 
 # SEE ALSO
 
-- [http://www.vatlive.com/](http://www.vatlive.com/) current and historic VAT rates resource
+- [European Commission Taxes database, search engine](https://ec.europa.eu/taxation_customs/tedb/splSearchForm.html)
+- [Resource for current and historic VAT rates](http://www.vatlive.com/)
 
 # AUTHOR
 
-Tony Bowden
+- Tony Bowden
+- Jonas B. (jonasbn), current maintainer
 
 # BUGS and QUERIES
 
-Please direct all correspondence regarding this module to:
-  bug-Business-Tax-VAT@rt.cpan.org
+Please direct all correspondence regarding this distribution to:
+
+- [GitHub](https://github.com/jonasbn/Business-Tax-VAT/issues)
 
 # ACKNOWLEDGEMENTS
 
